@@ -1,9 +1,15 @@
 [ClassVersion("1.0.0.0"), FriendlyName("NetQosPolicy")]
 class NetQosTrafficClass : OMI_BaseResource
 {
-    [Key] String Name;
-    [Required, ValueMap{"Default","SMB"}, Values{"ETS","Strict"}] String Algorithm;
-    [Required, ValueMap{"0","1","2","3","4","5","6","7"}, Values{"0","1","2","3","4","5","6","7"}] Uint8 Priority[];
-    [Required] Uint8 BandwidthPercentage;
+    [Key] String Name;    
+    [Required, ValueMap{"0","1","2","3","4","5","6","7"}, Values{"0","1","2","3","4","5","6","7"}] Uint8 PriorityValue8021Action;
+    [Required] String PolicyStore;
+    [Write, ValueMap{"Domain","Public","Private","All"}, Values{"Domain","Public","Private","All"}] String NetworkProfile;
+    [Write, ValueMap{"Default","SMB","Cluster","NFS","LiveMigration","iSCSI","FCOE"}, Values{"Default","SMB","Cluster","NFS","LiveMigration","iSCSI","FCOE"}] String MatchCondition;
+    [Write] Uint32 Precedence;
+    [Write] Uint8 DSCPAction;
+    [Write] Uint8 MinBandwidthWeightAction;
+    [Write] Uint64 ThrottleRateActionBitsPerSecond;
+    [Write] Uint16 NetDirectPortMatchCondition;
     [Write, ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
 };
