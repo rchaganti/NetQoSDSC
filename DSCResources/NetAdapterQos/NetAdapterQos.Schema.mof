@@ -1,0 +1,7 @@
+[ClassVersion("1.0.0.0"), FriendlyName("NetAdapterQoS")]
+class NetAdapterQoS : OMI_BaseResource
+{
+    [Key] String NetAdapterName;
+    [Write] Boolean NoRestart;
+    [Write, ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+};
