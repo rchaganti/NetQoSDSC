@@ -35,7 +35,7 @@
         PSData = @{
     
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags = @('DesiredStateConfiguration', 'DSC', 'DSCResourceKit', 'DSCResource','Failover Cluster','Cluster','Storage Spaces Direct','S2D')
+            Tags = @('DesiredStateConfiguration', 'DSC', 'DSCResourceKit', 'DSCResource','Network QoS','QoS')
     
             # A URL to the main website for this project.
             ProjectUri = 'https://github.com/rchaganti/DSCResources/NetQoSDSC'
