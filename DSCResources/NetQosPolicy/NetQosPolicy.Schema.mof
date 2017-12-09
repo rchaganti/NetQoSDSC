@@ -1,5 +1,5 @@
 [ClassVersion("1.0.0.0"), FriendlyName("NetQosPolicy")]
-class NetQosTrafficClass : OMI_BaseResource
+class NetQosPolicy : OMI_BaseResource
 {
     [Key] String Name;    
     [Required, ValueMap{"0","1","2","3","4","5","6","7"}, Values{"0","1","2","3","4","5","6","7"}] Uint8 PriorityValue8021Action;
