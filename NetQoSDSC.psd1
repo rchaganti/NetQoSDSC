@@ -3,7 +3,7 @@
     ModuleVersion = '1.0.0.0'
     
     # ID used to uniquely identify this module
-    GUID = 'aa52226b-1756-41b2-61e2-61ab6d753aa6'
+    GUID = '4b3aa75f-61b5-4b13-bfd4-17eb71ebe8a6'
     
     # Author of this module
     Author = 'Ravikanth Chaganti'
@@ -18,7 +18,7 @@
     Description = 'Module with DSC Resources for Microsoft Network QoS configurations.'
     
     # Minimum version of the Windows PowerShell engine required by this module
-    PowerShellVersion = '4.0'
+    PowerShellVersion = '5.0'
     
     # Minimum version of the common language runtime (CLR) required by this module
     CLRVersion = '4.0'

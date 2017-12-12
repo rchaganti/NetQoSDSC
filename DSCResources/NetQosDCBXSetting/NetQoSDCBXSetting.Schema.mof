@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("NetQoSDcbxSetting")]
+class NetQoSDcbxSetting : OMI_BaseResource
+{
+    [Key] String InterfaceAlias;
+    [Required] Boolean Willing;
+};
