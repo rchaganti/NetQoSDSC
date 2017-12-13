@@ -3,7 +3,7 @@ $modulePath = Join-Path -Path (Split-Path -Path (Split-Path -Path $PSScriptRoot 
 
 Import-Module -Name (Join-Path -Path $modulePath `
                                -ChildPath (Join-Path -Path 'NetQosDSC.Helper' `
-                                                     -ChildPath 'NetQosDSC.Helper.psm1'))
+                                                     -ChildPath 'NetQosDSC.Helper.psd1'))
 #endregion
 
 #region localizeddata
@@ -47,6 +47,7 @@ function Get-TargetResource
 		$Name,
 
         [Parameter(Mandatory = $true)]
+        [ValidateSet(0,1,2,3,4,5,6,7)]
         [Byte]
         $PriorityValue8021Action,
 
@@ -143,7 +144,7 @@ function Set-TargetResource
 		$Name,
 
         [Parameter(Mandatory = $true)]
-        [ValidateSet(0,1,2,3,4,5,6,7,8)]
+        [ValidateSet(0,1,2,3,4,5,6,7)]
         [Byte]
         $PriorityValue8021Action,
 
@@ -163,7 +164,7 @@ function Set-TargetResource
 
         [Parameter()]
         [ValidateRange(0,255)]
-        [Int32]
+        [uInt32]
         $Precedence = 127,
 
         [Parameter()]
@@ -181,7 +182,7 @@ function Set-TargetResource
         $ThrottleRateActionBitsPerSecond,
         
         [Parameter()]
-        [int16]
+        [uint16]
         $NetDirectPortMatchCondition,
         
         [Parameter()]
@@ -378,7 +379,7 @@ function Test-TargetResource
 		$Name,
 
         [Parameter(Mandatory = $true)]
-        [ValidateSet(0,1,2,3,4,5,6,7,8)]
+        [ValidateSet(0,1,2,3,4,5,6,7)]
         [Byte]
         $PriorityValue8021Action,
 
@@ -398,7 +399,7 @@ function Test-TargetResource
 
         [Parameter()]
         [ValidateRange(0,255)]
-        [Int32]
+        [UInt32]
         $Precedence = 127,
 
         [Parameter()]
@@ -416,7 +417,7 @@ function Test-TargetResource
         $ThrottleRateActionBitsPerSecond,
         
         [Parameter()]
-        [int16]
+        [Uint16]
         $NetDirectPortMatchCondition,
         
         [Parameter()]

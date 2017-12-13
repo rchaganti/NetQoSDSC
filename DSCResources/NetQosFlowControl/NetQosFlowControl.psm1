@@ -3,7 +3,7 @@ $modulePath = Join-Path -Path (Split-Path -Path (Split-Path -Path $PSScriptRoot 
 
 Import-Module -Name (Join-Path -Path $modulePath `
                                -ChildPath (Join-Path -Path 'NetQosDSC.Helper' `
-                                                     -ChildPath 'NetQosDSC.Helper.psm1'))
+                                                     -ChildPath 'NetQosDSC.Helper.psd1'))
 #endregion
 
 #region localizeddata
@@ -47,6 +47,7 @@ function Get-TargetResource
         $Id,
 
         [Parameter(Mandatory = $true)]
+        [ValidateSet(0,1,2,3,4,5,6,7)]
         [Byte[]]
         $Priority,
 
@@ -92,6 +93,7 @@ function Set-TargetResource
         $Id,
 
         [Parameter(Mandatory = $true)]
+        [ValidateSet(0,1,2,3,4,5,6,7)]
         [Byte[]]
         $Priority,
 
@@ -136,6 +138,7 @@ function Test-TargetResource
         $Id,
 
         [Parameter(Mandatory = $true)]
+        [ValidateSet(0,1,2,3,4,5,6,7)]
         [Byte[]]
         $Priority,
 

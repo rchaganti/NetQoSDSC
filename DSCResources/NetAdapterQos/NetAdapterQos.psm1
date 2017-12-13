@@ -3,7 +3,7 @@ $modulePath = Join-Path -Path (Split-Path -Path (Split-Path -Path $PSScriptRoot 
 
 Import-Module -Name (Join-Path -Path $modulePath `
                                -ChildPath (Join-Path -Path 'NetQosDSC.Helper' `
-                                                     -ChildPath 'NetQosDSC.Helper.psm1'))
+                                                     -ChildPath 'NetQosDSC.Helper.psd1'))
 #endregion
 
 #region localizeddata
@@ -38,18 +38,18 @@ function Get-TargetResource
 	(
         [Parameter(Mandatory = $true)]
 		[String]
-		$Name
+		$NetAdapterName
 	)
 
     $configuration = @{
-        Name = $Name
+        Name = $NetAdapterName
     }
 
-    $netAdapter = Get-NetAdaper -Name $Name -ErrorAction SilentlyContinue
+    $netAdapter = Get-NetAdaper -Name $NetAdapterName -ErrorAction SilentlyContinue
 
     if ($netAdapter)
     {
-        if ((Get-NetAdapterQos -Name $Name).Enabled)
+        if ((Get-NetAdapterQos -Name $NetAdapterName).Enabled)
         {
             $configuration.Add('Ensure','Present')
         }
@@ -89,7 +89,7 @@ function Set-TargetResource
 	(
         [Parameter(Mandatory = $true)]
 		[String]
-		$Name,
+		$NetAdapterName,
 
         [Parameter()]
         [Boolean]
@@ -100,12 +100,12 @@ function Set-TargetResource
 		$Ensure = 'Present'    
 	)
 
-    $netAdapter = Get-NetAdaper -Name $Name -ErrorAction SilentlyContinue
+    $netAdapter = Get-NetAdaper -Name $NetAdapterName -ErrorAction SilentlyContinue
     
     if ($netAdapter)
     {
         $params = @{
-            Name = $Name
+            Name = $NetAdapterName
             NoRestart = $NoRestart
         }
 
@@ -148,7 +148,7 @@ function Test-TargetResource
 	(
         [Parameter(Mandatory = $true)]
 		[String]
-		$Name,
+		$NetAdapterName,
 
         [Parameter()]
         [Boolean]
@@ -159,11 +159,11 @@ function Test-TargetResource
 		$Ensure = 'Present'   
 	)
 
-    $netAdapter = Get-NetAdaper -Name $Name -ErrorAction SilentlyContinue
+    $netAdapter = Get-NetAdaper -Name $NetAdapterName -ErrorAction SilentlyContinue
     
     if ($netAdapter)
     {
-        $qosEnabled = Get-NetAdapterQoS -Name $Name -Verbose
+        $qosEnabled = Get-NetAdapterQoS -Name $NetAdapterName -Verbose
 
         if ($Ensure -eq 'Present')
         {
