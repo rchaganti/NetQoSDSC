@@ -87,7 +87,6 @@ function Set-TargetResource
     
     if ($currenState -ne $Willing)
     {
-        Write-Verbose -Message $localizedData.SetWilling
         if ($InterfaceAlias -eq 'Global')
         {
             Write-Verbose -Message $localizedData.SetWillingGlobal

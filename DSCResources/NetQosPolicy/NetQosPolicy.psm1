@@ -233,6 +233,10 @@ function Set-TargetResource
             if ($NetDirectPortMatchCondition -and ($NetDirectPortMatchCondition -ne $qosPolicy.NetDirectPortMatchCondition))
             {
                 $setParams.Add('NetDirectPortMatchCondition', $NetDirectPortMatchCondition)
+                if ($qosPolicy.Template -ne 'None')
+                {
+                    $setParams.Add('TemplateMatchCondition', 'None')
+                }
             }
 
             if ($DSCPAction -and ($DSCPAction -ne $qosPolicy.DSCPAction))
@@ -453,19 +457,19 @@ function Test-TargetResource
             if ($NetworkProfile -ne $qosPolicy.NetworkProfile)
             {
                 Write-Verbose -Message ($localizedData.QoSpolicyExistsWithDifferentNetProfile -f $Name, $PolicyStore)
-                retutn $false
+                return $false
             }
 
             if ($Precedence -ne $qosPolicy.Precedence)
             {
                 Write-Verbose -Message ($localizedData.QoSpolicyExistsWithDifferentPrecedence -f $Name, $PolicyStore)
-                retutn $false
+                return $false
             }
 
             if ($NetDirectPortMatchCondition -and ($NetDirectPortMatchCondition -ne $qosPolicy.NetDirectPortMatchCondition))
             {
                 Write-Verbose -Message ($localizedData.QoSpolicyExistsWithDifferentNetDirectPort -f $Name, $PolicyStore)
-                retutn $false
+                return $false
             }
 
             if ($DSCPAction -and ($DSCPAction -ne $qosPolicy.DSCPAction))

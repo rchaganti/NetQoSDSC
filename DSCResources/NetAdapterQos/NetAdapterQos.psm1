@@ -45,7 +45,7 @@ function Get-TargetResource
         Name = $NetAdapterName
     }
 
-    $netAdapter = Get-NetAdaper -Name $NetAdapterName -ErrorAction SilentlyContinue
+    $netAdapter = Get-NetAdapter -Name $NetAdapterName -ErrorAction SilentlyContinue
 
     if ($netAdapter)
     {
@@ -100,7 +100,7 @@ function Set-TargetResource
 		$Ensure = 'Present'    
 	)
 
-    $netAdapter = Get-NetAdaper -Name $NetAdapterName -ErrorAction SilentlyContinue
+    $netAdapter = Get-NetAdapter -Name $NetAdapterName -ErrorAction SilentlyContinue
     
     if ($netAdapter)
     {
@@ -159,7 +159,7 @@ function Test-TargetResource
 		$Ensure = 'Present'   
 	)
 
-    $netAdapter = Get-NetAdaper -Name $NetAdapterName -ErrorAction SilentlyContinue
+    $netAdapter = Get-NetAdapter -Name $NetAdapterName -ErrorAction SilentlyContinue
     
     if ($netAdapter)
     {
