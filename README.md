@@ -14,3 +14,5 @@ This PS DSC resource module provides the resources to configure Network QoS para
 ## TODO
 - Add tests
 - Add end to end examples
+- Add documentation in the resource modules
+
