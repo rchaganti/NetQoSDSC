@@ -8,6 +8,7 @@ Configuration NewNetQoSPolicy
         Name = 'SMB'
         PriorityValue8021Action = 3
         PolicyStore = 'localhost'
+        NetDirectPortMatchCondition = 445
         Ensure = 'Present'
     }
 }
